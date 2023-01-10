@@ -29,7 +29,13 @@ class MainView: UIView {
     let buttonDivide = UIButton()
     let buttonMinus = UIButton()
     let buttonEquals = UIButton()
-    let horizontalStackView = UIStackView()
+    let horizontalStackView1 = UIStackView()
+    let horizontalStackView2 = UIStackView()
+    let horizontalStackView3 = UIStackView()
+    let horizontalStackView4 = UIStackView()
+    let horizontalStackView5 = UIStackView()
+    let verticalStackView = UIStackView()
+
 
     override init(frame: CGRect) {
         
@@ -62,101 +68,141 @@ class MainView: UIView {
         // Button1
         button1.translatesAutoresizingMaskIntoConstraints = false
         button1.setTitle("1", for: UIControl.State.normal)
-        button1.backgroundColor = .blue
+        button1.titleLabel?.font =  button1.titleLabel?.font.withSize(48)
+
         
         // Button2
         button2.translatesAutoresizingMaskIntoConstraints = false
         button2.setTitle("2", for: UIControl.State.normal)
-        button2.backgroundColor = .blue
+        button2.titleLabel?.font =  button2.titleLabel?.font.withSize(48)
+
 
         // Button3
         button3.translatesAutoresizingMaskIntoConstraints = false
         button3.setTitle("3", for: UIControl.State.normal)
-        button3.backgroundColor = .blue
-        
+        button3.titleLabel?.font =  button3.titleLabel?.font.withSize(48)
+
         // Button4
         button4.translatesAutoresizingMaskIntoConstraints = false
         button4.setTitle("4", for: UIControl.State.normal)
-        button4.backgroundColor = .blue
-        
+        button4.titleLabel?.font =  button4.titleLabel?.font.withSize(48)
+
         // Button5
         button5.translatesAutoresizingMaskIntoConstraints = false
         button5.setTitle("5", for: UIControl.State.normal)
-        button5.backgroundColor = .blue
-        
+        button5.titleLabel?.font =  button5.titleLabel?.font.withSize(48)
+
         // Button6
         button6.translatesAutoresizingMaskIntoConstraints = false
         button6.setTitle("6", for: UIControl.State.normal)
-        button6.backgroundColor = .blue
-        
+        button6.titleLabel?.font =  button6.titleLabel?.font.withSize(48)
+
         // Button7
         button7.translatesAutoresizingMaskIntoConstraints = false
         button7.setTitle("7", for: UIControl.State.normal)
-        button7.backgroundColor = .blue
-        
+        button7.titleLabel?.font =  button7.titleLabel?.font.withSize(48)
+
         // Button8
         button8.translatesAutoresizingMaskIntoConstraints = false
         button8.setTitle("8", for: UIControl.State.normal)
-        button8.backgroundColor = .blue
-        
+        button8.titleLabel?.font =  button8.titleLabel?.font.withSize(48)
+
         // Button9
         button9.translatesAutoresizingMaskIntoConstraints = false
         button9.setTitle("9", for: UIControl.State.normal)
-        button9.backgroundColor = .blue
-        
+        button9.titleLabel?.font =  button9.titleLabel?.font.withSize(48)
+
         // Button0
         button0.translatesAutoresizingMaskIntoConstraints = false
         button0.setTitle("0", for: UIControl.State.normal)
-        button0.backgroundColor = .blue
-        
+        button0.titleLabel?.font =  button0.titleLabel?.font.withSize(48)
+
         // Button Multiply
         buttonMultiply.translatesAutoresizingMaskIntoConstraints = false
         buttonMultiply.setTitle("x", for: UIControl.State.normal)
-        buttonMultiply.backgroundColor = .blue
-        buttonMultiply.titleLabel?.font =  buttonAC.titleLabel?.font.withSize(30)
+        buttonMultiply.titleLabel?.font =  buttonMultiply.titleLabel?.font.withSize(48)
 
         
         // Button Divide
         buttonDivide.translatesAutoresizingMaskIntoConstraints = false
         buttonDivide.setTitle("/", for: UIControl.State.normal)
-        buttonDivide.backgroundColor = .blue
-        buttonDivide.titleLabel?.font =  buttonAC.titleLabel?.font.withSize(30)
+        buttonDivide.titleLabel?.font =  buttonDivide.titleLabel?.font.withSize(48)
 
         
         // Button Add
         buttonAdd.translatesAutoresizingMaskIntoConstraints = false
         buttonAdd.setTitle("+", for: UIControl.State.normal)
-        buttonAdd.backgroundColor = .blue
-        buttonAdd.titleLabel?.font =  buttonAC.titleLabel?.font.withSize(30)
+        buttonAdd.titleLabel?.font =  buttonAdd.titleLabel?.font.withSize(48)
 
         
         // Button Minus
         buttonMinus.translatesAutoresizingMaskIntoConstraints = false
         buttonMinus.setTitle("-", for: UIControl.State.normal)
-        buttonMinus.backgroundColor = .blue
-        buttonMinus.titleLabel?.font =  buttonAC.titleLabel?.font.withSize(30)
+        buttonMinus.titleLabel?.font =  buttonMinus.titleLabel?.font.withSize(48)
 
         
         // Button Equals
         buttonEquals.translatesAutoresizingMaskIntoConstraints = false
         buttonEquals.setTitle("=", for: UIControl.State.normal)
-        buttonEquals.backgroundColor = .blue
-        buttonEquals.titleLabel?.font =  buttonAC.titleLabel?.font.withSize(30)
+        buttonEquals.titleLabel?.font =  buttonEquals.titleLabel?.font.withSize(48)
 
         
         // Button AC
         buttonAC.translatesAutoresizingMaskIntoConstraints = false
         buttonAC.setTitle("AC", for: UIControl.State.normal)
-        buttonAC.backgroundColor = .blue
+        buttonAC.titleLabel?.font =  buttonAC.titleLabel?.font.withSize(48)
+
+        // Horizontal Stack View 1
+        horizontalStackView1.translatesAutoresizingMaskIntoConstraints = false
+        horizontalStackView1.backgroundColor = .orange
+        //horizontalStackView1.spacing = 100.0
+        horizontalStackView1.distribution = UIStackView.Distribution.equalSpacing
+        horizontalStackView1.alignment = UIStackView.Alignment.center
+        horizontalStackView1.spacing   = 60.0
+
+        // Horizontal Stack View 2
+        horizontalStackView2.translatesAutoresizingMaskIntoConstraints = false
+        horizontalStackView2.backgroundColor = .orange
+        //horizontalStackView2.spacing = 50.0
+        horizontalStackView2.distribution = UIStackView.Distribution.equalSpacing
+        horizontalStackView2.alignment = UIStackView.Alignment.center
+        horizontalStackView2.spacing   = 60.0
 
         
-        // Horizontal Stack View
-        horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
-        horizontalStackView.backgroundColor = .white
-        //horizontalStackView.spacing = 15.0
-        horizontalStackView.alignment = UIStackView.Alignment.center
-        horizontalStackView.distribution  = UIStackView.Distribution.equalSpacing
-        
+        // Horizontal Stack View 3
+        horizontalStackView3.translatesAutoresizingMaskIntoConstraints = false
+        horizontalStackView3.backgroundColor = .orange
+        //horizontalStackView2.spacing = 50.0
+        horizontalStackView3.distribution = UIStackView.Distribution.equalSpacing
+        horizontalStackView3.alignment = UIStackView.Alignment.center
+        horizontalStackView3.spacing   = 60.0
+
+        // Horizontal Stack View 4
+        horizontalStackView4.translatesAutoresizingMaskIntoConstraints = false
+        horizontalStackView4.backgroundColor = .orange
+        //horizontalStackView4.spacing = 50.0
+        horizontalStackView4.distribution = UIStackView.Distribution.equalSpacing
+        horizontalStackView4.alignment = UIStackView.Alignment.center
+        horizontalStackView4.spacing   = 60.0
+
+        // Horizontal Stack View 5
+        horizontalStackView5.translatesAutoresizingMaskIntoConstraints = false
+        horizontalStackView5.backgroundColor = .orange
+        //horizontalStackView5.spacing = 50.0
+        horizontalStackView5.distribution = UIStackView.Distribution.equalSpacing
+        horizontalStackView5.alignment = UIStackView.Alignment.center
+        horizontalStackView5.spacing   = 60.0
+
+        // Vertical Stack View
+        verticalStackView.translatesAutoresizingMaskIntoConstraints = false
+        verticalStackView.backgroundColor = .orange
+        verticalStackView.axis = .vertical
+        verticalStackView.distribution = UIStackView.Distribution.equalSpacing
+        verticalStackView.alignment = UIStackView.Alignment.center
+        horizontalStackView5.spacing   = 60.0
+
+
+
     }
     
     func setUpConstraint() {
@@ -180,7 +226,12 @@ class MainView: UIView {
         addSubview(buttonAdd)
         addSubview(buttonEquals)
         addSubview(buttonAC)
-        addSubview(horizontalStackView)
+        addSubview(horizontalStackView1)
+        addSubview(horizontalStackView2)
+        addSubview(horizontalStackView3)
+        addSubview(horizontalStackView4)
+        addSubview(horizontalStackView5)
+        addSubview(verticalStackView)
 
         //label1.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         //label1.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
@@ -188,75 +239,54 @@ class MainView: UIView {
         //mainView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
         NSLayoutConstraint.activate([
-            label1.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 10.0),
-            label1.topAnchor.constraint(equalTo: self.topAnchor, constant: 30.0),
-            label1.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10.0),
+            label1.bottomAnchor.constraint(equalTo: label2.topAnchor, constant: -200.0),
+            label1.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0.0),
             
-            label2.topAnchor.constraint(equalTo: label1.bottomAnchor, constant: 100.0),
-            label2.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 10.0),
-            label2.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10.0),
+            label2.bottomAnchor.constraint(equalTo: calculatorView.topAnchor, constant: -20),
+            label2.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0.0),
+            //label2.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10.0),
             
             calculatorView.topAnchor.constraint(equalTo: self.centerYAnchor, constant: 0.0),
             calculatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0.0),
             calculatorView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
             calculatorView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0.0),
             
-            buttonAC.bottomAnchor.constraint(equalTo: self.centerYAnchor, constant: 0.0),
-            buttonAC.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0.0),
-            buttonAC.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
+            verticalStackView.topAnchor.constraint(equalTo: calculatorView.topAnchor, constant: 0.0),
+            verticalStackView.rightAnchor.constraint(equalTo: calculatorView.rightAnchor, constant: 0.0),
+            verticalStackView.leftAnchor.constraint(equalTo: calculatorView.leftAnchor, constant: 0.0),
+            //verticalStackView.bottomAnchor.constraint(equalTo: calculatorView.bottomAnchor, constant: -100.0),
             
-            button1.topAnchor.constraint(equalTo: self.centerYAnchor, constant: 0.0),
-            button1.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0.0),
-            button1.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
 
-            button2.topAnchor.constraint(equalTo: button1.bottomAnchor, constant: 0.0),
-            button2.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0.0),
-            button2.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
-            
-            button3.topAnchor.constraint(equalTo: button2.bottomAnchor, constant: 0.0),
-            button3.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0.0),
-            button3.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
-            
-            button4.topAnchor.constraint(equalTo: button3.bottomAnchor, constant: 0.0),
-            button4.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0.0),
-            button4.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
-            
-            button5.topAnchor.constraint(equalTo: button4.bottomAnchor, constant: 0.0),
-            button5.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0.0),
-            button5.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
-            
-            button6.topAnchor.constraint(equalTo: button5.bottomAnchor, constant: 0.0),
-            button6.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0.0),
-            button6.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
-            
-            button7.topAnchor.constraint(equalTo: button6.bottomAnchor, constant: 0.0),
-            button7.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0.0),
-            button7.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
-            
-            button8.topAnchor.constraint(equalTo: button7.bottomAnchor, constant: 0.0),
-            button8.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0.0),
-            button8.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
-            
-            button9.topAnchor.constraint(equalTo: button8.bottomAnchor, constant: 0.0),
-            button9.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0.0),
-            button9.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
-            
-            button0.topAnchor.constraint(equalTo: button9.bottomAnchor, constant: 0.0),
-            button0.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0.0),
-            button0.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
-            
-            horizontalStackView.topAnchor.constraint(equalTo: button0.bottomAnchor, constant: 0.0),
-            //horizontalStackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0.0),
-            //horizontalStackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0.0),
-            horizontalStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
-        horizontalStackView.addArrangedSubview(buttonEquals)
-        horizontalStackView.addArrangedSubview(buttonMultiply)
-        horizontalStackView.addArrangedSubview(buttonDivide)
-        horizontalStackView.addArrangedSubview(buttonAdd)
-        horizontalStackView.addArrangedSubview(buttonMinus)
+        // Adding everything to the stack views
         
+        horizontalStackView1.addArrangedSubview(button0)
+        horizontalStackView1.addArrangedSubview(buttonEquals)
+        
+        horizontalStackView2.addArrangedSubview(button1)
+        horizontalStackView2.addArrangedSubview(button2)
+        horizontalStackView2.addArrangedSubview(button3)
+        horizontalStackView2.addArrangedSubview(buttonAdd)
+        
+        horizontalStackView3.addArrangedSubview(button4)
+        horizontalStackView3.addArrangedSubview(button5)
+        horizontalStackView3.addArrangedSubview(button6)
+        horizontalStackView3.addArrangedSubview(buttonMinus)
+        
+        horizontalStackView4.addArrangedSubview(button7)
+        horizontalStackView4.addArrangedSubview(button8)
+        horizontalStackView4.addArrangedSubview(button9)
+        horizontalStackView4.addArrangedSubview(buttonMultiply)
+        
+        horizontalStackView5.addArrangedSubview(buttonAC)
+        horizontalStackView5.addArrangedSubview(buttonDivide)
+        
+        verticalStackView.addArrangedSubview(horizontalStackView1)
+        verticalStackView.addArrangedSubview(horizontalStackView2)
+        verticalStackView.addArrangedSubview(horizontalStackView3)
+        verticalStackView.addArrangedSubview(horizontalStackView4)
+        verticalStackView.addArrangedSubview(horizontalStackView5)
     }
     
     required init?(coder: NSCoder) {
@@ -265,3 +295,5 @@ class MainView: UIView {
 }
 
 // bound and frame
+// Frame is like this size of the object relative to the superview
+// Bound is like its own coordinate system. Not relative to anything. Like if you rotate a rectangle, its bound gets bigger
