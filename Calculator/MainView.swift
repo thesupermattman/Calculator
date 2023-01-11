@@ -44,8 +44,19 @@ class MainView: UIView {
         setUpConstraint()
     }
     
+    func setButtonStyling(for buttons: [UIButton]) {
+        buttons.forEach {button in
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.titleLabel?.font =  button1.titleLabel?.font.withSize(48)
+        }
+    }
+    
     func setUpView() {
+        
         backgroundColor = .white
+        
+        setButtonStyling(for: [button0, button1, button2, button3, button4, button5, button6, button7, button8, button9,
+                         buttonAC, buttonEquals, buttonAdd, buttonMinus, buttonDivide, buttonMultiply])
         
         // Label 1
         label1.translatesAutoresizingMaskIntoConstraints = false
@@ -65,92 +76,22 @@ class MainView: UIView {
         calculatorView.translatesAutoresizingMaskIntoConstraints = false
         calculatorView.backgroundColor = .orange
         
-        // Button1
-        button1.translatesAutoresizingMaskIntoConstraints = false
         button1.setTitle("1", for: UIControl.State.normal)
-        button1.titleLabel?.font =  button1.titleLabel?.font.withSize(48)
-
-        
-        // Button2
-        button2.translatesAutoresizingMaskIntoConstraints = false
         button2.setTitle("2", for: UIControl.State.normal)
-        button2.titleLabel?.font =  button2.titleLabel?.font.withSize(48)
-
-
-        // Button3
-        button3.translatesAutoresizingMaskIntoConstraints = false
         button3.setTitle("3", for: UIControl.State.normal)
-        button3.titleLabel?.font =  button3.titleLabel?.font.withSize(48)
-
-        // Button4
-        button4.translatesAutoresizingMaskIntoConstraints = false
         button4.setTitle("4", for: UIControl.State.normal)
-        button4.titleLabel?.font =  button4.titleLabel?.font.withSize(48)
-
-        // Button5
-        button5.translatesAutoresizingMaskIntoConstraints = false
         button5.setTitle("5", for: UIControl.State.normal)
-        button5.titleLabel?.font =  button5.titleLabel?.font.withSize(48)
-
-        // Button6
-        button6.translatesAutoresizingMaskIntoConstraints = false
         button6.setTitle("6", for: UIControl.State.normal)
-        button6.titleLabel?.font =  button6.titleLabel?.font.withSize(48)
-
-        // Button7
-        button7.translatesAutoresizingMaskIntoConstraints = false
         button7.setTitle("7", for: UIControl.State.normal)
-        button7.titleLabel?.font =  button7.titleLabel?.font.withSize(48)
-
-        // Button8
-        button8.translatesAutoresizingMaskIntoConstraints = false
         button8.setTitle("8", for: UIControl.State.normal)
-        button8.titleLabel?.font =  button8.titleLabel?.font.withSize(48)
-
-        // Button9
-        button9.translatesAutoresizingMaskIntoConstraints = false
         button9.setTitle("9", for: UIControl.State.normal)
-        button9.titleLabel?.font =  button9.titleLabel?.font.withSize(48)
-
-        // Button0
-        button0.translatesAutoresizingMaskIntoConstraints = false
         button0.setTitle("0", for: UIControl.State.normal)
-        button0.titleLabel?.font =  button0.titleLabel?.font.withSize(48)
-
-        // Button Multiply
-        buttonMultiply.translatesAutoresizingMaskIntoConstraints = false
         buttonMultiply.setTitle("x", for: UIControl.State.normal)
-        buttonMultiply.titleLabel?.font =  buttonMultiply.titleLabel?.font.withSize(48)
-
-        
-        // Button Divide
-        buttonDivide.translatesAutoresizingMaskIntoConstraints = false
         buttonDivide.setTitle("/", for: UIControl.State.normal)
-        buttonDivide.titleLabel?.font =  buttonDivide.titleLabel?.font.withSize(48)
-
-        
-        // Button Add
-        buttonAdd.translatesAutoresizingMaskIntoConstraints = false
         buttonAdd.setTitle("+", for: UIControl.State.normal)
-        buttonAdd.titleLabel?.font =  buttonAdd.titleLabel?.font.withSize(48)
-
-        
-        // Button Minus
-        buttonMinus.translatesAutoresizingMaskIntoConstraints = false
         buttonMinus.setTitle("-", for: UIControl.State.normal)
-        buttonMinus.titleLabel?.font =  buttonMinus.titleLabel?.font.withSize(48)
-
-        
-        // Button Equals
-        buttonEquals.translatesAutoresizingMaskIntoConstraints = false
         buttonEquals.setTitle("=", for: UIControl.State.normal)
-        buttonEquals.titleLabel?.font =  buttonEquals.titleLabel?.font.withSize(48)
-
-        
-        // Button AC
-        buttonAC.translatesAutoresizingMaskIntoConstraints = false
         buttonAC.setTitle("AC", for: UIControl.State.normal)
-        buttonAC.titleLabel?.font =  buttonAC.titleLabel?.font.withSize(48)
 
         // Horizontal Stack View 1
         horizontalStackView1.translatesAutoresizingMaskIntoConstraints = false
@@ -297,3 +238,5 @@ class MainView: UIView {
 // bound and frame
 // Frame is like this size of the object relative to the superview
 // Bound is like its own coordinate system. Not relative to anything. Like if you rotate a rectangle, its bound gets bigger
+
+// Task 1. Clean code by making it into a function 2. Make the view controller with the techniques Ping showed 3. Research delegate
