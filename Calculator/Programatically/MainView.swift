@@ -36,9 +36,7 @@ class MainView: UIView {
     let horizontalStackView5 = UIStackView()
     let verticalStackView = UIStackView()
 
-
     override init(frame: CGRect) {
-        
         super.init(frame: UIScreen.main.bounds)
         setUpView()
         setUpConstraint()
@@ -51,6 +49,16 @@ class MainView: UIView {
         }
     }
     
+    func setStackViewStyling(for stackviews: [UIStackView]) {
+        stackviews.forEach {stackview in
+            stackview.translatesAutoresizingMaskIntoConstraints = false
+            stackview.backgroundColor = .orange
+            stackview.distribution = UIStackView.Distribution.equalSpacing
+            stackview.alignment = UIStackView.Alignment.center
+            stackview.spacing   = 60.0
+        }
+    }
+    
     func setUpView() {
         
         backgroundColor = .white
@@ -58,16 +66,18 @@ class MainView: UIView {
         setButtonStyling(for: [button0, button1, button2, button3, button4, button5, button6, button7, button8, button9,
                          buttonAC, buttonEquals, buttonAdd, buttonMinus, buttonDivide, buttonMultiply])
         
+        setStackViewStyling(for: [horizontalStackView1, horizontalStackView2, horizontalStackView3, horizontalStackView4, horizontalStackView5])
+        
         // Label 1
         label1.translatesAutoresizingMaskIntoConstraints = false
-        label1.text = "5+2"
+        label1.text = "0"
         label1.font = .systemFont(ofSize: 50)
         label1.textColor = .black
         label1.textAlignment = .center
         
         // Label 2
         label2.translatesAutoresizingMaskIntoConstraints = false
-        label2.text = "7"
+        label2.text = "0"
         label2.font = .systemFont(ofSize: 50)
         label2.textColor = .black
         label1.textAlignment = .center
@@ -76,6 +86,7 @@ class MainView: UIView {
         calculatorView.translatesAutoresizingMaskIntoConstraints = false
         calculatorView.backgroundColor = .orange
         
+        // Buttons
         button1.setTitle("1", for: UIControl.State.normal)
         button2.setTitle("2", for: UIControl.State.normal)
         button3.setTitle("3", for: UIControl.State.normal)
@@ -93,47 +104,6 @@ class MainView: UIView {
         buttonEquals.setTitle("=", for: UIControl.State.normal)
         buttonAC.setTitle("AC", for: UIControl.State.normal)
 
-        // Horizontal Stack View 1
-        horizontalStackView1.translatesAutoresizingMaskIntoConstraints = false
-        horizontalStackView1.backgroundColor = .orange
-        //horizontalStackView1.spacing = 100.0
-        horizontalStackView1.distribution = UIStackView.Distribution.equalSpacing
-        horizontalStackView1.alignment = UIStackView.Alignment.center
-        horizontalStackView1.spacing   = 60.0
-
-        // Horizontal Stack View 2
-        horizontalStackView2.translatesAutoresizingMaskIntoConstraints = false
-        horizontalStackView2.backgroundColor = .orange
-        //horizontalStackView2.spacing = 50.0
-        horizontalStackView2.distribution = UIStackView.Distribution.equalSpacing
-        horizontalStackView2.alignment = UIStackView.Alignment.center
-        horizontalStackView2.spacing   = 60.0
-
-        
-        // Horizontal Stack View 3
-        horizontalStackView3.translatesAutoresizingMaskIntoConstraints = false
-        horizontalStackView3.backgroundColor = .orange
-        //horizontalStackView2.spacing = 50.0
-        horizontalStackView3.distribution = UIStackView.Distribution.equalSpacing
-        horizontalStackView3.alignment = UIStackView.Alignment.center
-        horizontalStackView3.spacing   = 60.0
-
-        // Horizontal Stack View 4
-        horizontalStackView4.translatesAutoresizingMaskIntoConstraints = false
-        horizontalStackView4.backgroundColor = .orange
-        //horizontalStackView4.spacing = 50.0
-        horizontalStackView4.distribution = UIStackView.Distribution.equalSpacing
-        horizontalStackView4.alignment = UIStackView.Alignment.center
-        horizontalStackView4.spacing   = 60.0
-
-        // Horizontal Stack View 5
-        horizontalStackView5.translatesAutoresizingMaskIntoConstraints = false
-        horizontalStackView5.backgroundColor = .orange
-        //horizontalStackView5.spacing = 50.0
-        horizontalStackView5.distribution = UIStackView.Distribution.equalSpacing
-        horizontalStackView5.alignment = UIStackView.Alignment.center
-        horizontalStackView5.spacing   = 60.0
-
         // Vertical Stack View
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         verticalStackView.backgroundColor = .orange
@@ -141,9 +111,6 @@ class MainView: UIView {
         verticalStackView.distribution = UIStackView.Distribution.equalSpacing
         verticalStackView.alignment = UIStackView.Alignment.center
         horizontalStackView5.spacing   = 60.0
-
-
-
     }
     
     func setUpConstraint() {
@@ -173,6 +140,29 @@ class MainView: UIView {
         addSubview(horizontalStackView4)
         addSubview(horizontalStackView5)
         addSubview(verticalStackView)
+        
+        // Adding everything to the stack views
+        horizontalStackView1.addArrangedSubview(button0)
+        horizontalStackView1.addArrangedSubview(buttonEquals)
+        horizontalStackView2.addArrangedSubview(button1)
+        horizontalStackView2.addArrangedSubview(button2)
+        horizontalStackView2.addArrangedSubview(button3)
+        horizontalStackView2.addArrangedSubview(buttonAdd)
+        horizontalStackView3.addArrangedSubview(button4)
+        horizontalStackView3.addArrangedSubview(button5)
+        horizontalStackView3.addArrangedSubview(button6)
+        horizontalStackView3.addArrangedSubview(buttonMinus)
+        horizontalStackView4.addArrangedSubview(button7)
+        horizontalStackView4.addArrangedSubview(button8)
+        horizontalStackView4.addArrangedSubview(button9)
+        horizontalStackView4.addArrangedSubview(buttonMultiply)
+        horizontalStackView5.addArrangedSubview(buttonAC)
+        horizontalStackView5.addArrangedSubview(buttonDivide)
+        verticalStackView.addArrangedSubview(horizontalStackView5)
+        verticalStackView.addArrangedSubview(horizontalStackView4)
+        verticalStackView.addArrangedSubview(horizontalStackView3)
+        verticalStackView.addArrangedSubview(horizontalStackView2)
+        verticalStackView.addArrangedSubview(horizontalStackView1)
 
         //label1.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         //label1.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
@@ -195,39 +185,7 @@ class MainView: UIView {
             verticalStackView.topAnchor.constraint(equalTo: calculatorView.topAnchor, constant: 0.0),
             verticalStackView.rightAnchor.constraint(equalTo: calculatorView.rightAnchor, constant: 0.0),
             verticalStackView.leftAnchor.constraint(equalTo: calculatorView.leftAnchor, constant: 0.0),
-            //verticalStackView.bottomAnchor.constraint(equalTo: calculatorView.bottomAnchor, constant: -100.0),
-            
-
         ])
-        
-        // Adding everything to the stack views
-        
-        horizontalStackView1.addArrangedSubview(button0)
-        horizontalStackView1.addArrangedSubview(buttonEquals)
-        
-        horizontalStackView2.addArrangedSubview(button1)
-        horizontalStackView2.addArrangedSubview(button2)
-        horizontalStackView2.addArrangedSubview(button3)
-        horizontalStackView2.addArrangedSubview(buttonAdd)
-        
-        horizontalStackView3.addArrangedSubview(button4)
-        horizontalStackView3.addArrangedSubview(button5)
-        horizontalStackView3.addArrangedSubview(button6)
-        horizontalStackView3.addArrangedSubview(buttonMinus)
-        
-        horizontalStackView4.addArrangedSubview(button7)
-        horizontalStackView4.addArrangedSubview(button8)
-        horizontalStackView4.addArrangedSubview(button9)
-        horizontalStackView4.addArrangedSubview(buttonMultiply)
-        
-        horizontalStackView5.addArrangedSubview(buttonAC)
-        horizontalStackView5.addArrangedSubview(buttonDivide)
-        
-        verticalStackView.addArrangedSubview(horizontalStackView1)
-        verticalStackView.addArrangedSubview(horizontalStackView2)
-        verticalStackView.addArrangedSubview(horizontalStackView3)
-        verticalStackView.addArrangedSubview(horizontalStackView4)
-        verticalStackView.addArrangedSubview(horizontalStackView5)
     }
     
     required init?(coder: NSCoder) {
