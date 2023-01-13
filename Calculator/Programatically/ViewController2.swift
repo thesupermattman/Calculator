@@ -72,7 +72,7 @@ class ViewController2: UIViewController {
         case mainView.buttonMinus:
             (mainView.label1.text = viewModel2.addToWorkings(value: "-"))
         case mainView.buttonMultiply:
-            (mainView.label1.text = viewModel2.addToWorkings(value: "x"))
+            (mainView.label1.text = viewModel2.addToWorkings(value: "*"))
         case mainView.buttonDivide:
             (mainView.label1.text = viewModel2.addToWorkings(value: "/"))
         case mainView.buttonEquals:

@@ -197,4 +197,6 @@ class MainView: UIView {
 // Frame is like this size of the object relative to the superview
 // Bound is like its own coordinate system. Not relative to anything. Like if you rotate a rectangle, its bound gets bigger
 
-// Task 1. Clean code by making it into a function 2. Make the view controller with the techniques Ping showed 3. Research delegate
+// Task
+// Research delegate and implement in the project
+// Research set button action rx swift
