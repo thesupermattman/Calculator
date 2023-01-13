@@ -8,6 +8,20 @@
 import Foundation
 import UIKit
 
+enum ButtonType {
+    case acButton
+    case addButton
+    case minusButton
+    case multiplyButton
+    case divideButton
+    case equalButton
+    case number(value: String)
+}
+
+protocol CalculatorViewDelegate: AnyObject {
+    func onTappedButton(buttonType: ButtonType)
+}
+
 class MainView: UIView {
     
     let label1 = UILabel()
@@ -35,6 +49,47 @@ class MainView: UIView {
     let horizontalStackView4 = UIStackView()
     let horizontalStackView5 = UIStackView()
     let verticalStackView = UIStackView()
+    
+    weak var delegate: CalculatorViewDelegate? = nil
+    
+    @objc private func handleButtonTapped(_ sender: UIButton) {
+        switch sender {
+        case button0:
+            delegate?.onTappedButton(buttonType: .number(value: "0"))
+        case button1:
+            delegate?.onTappedButton(buttonType: .number(value: "1"))
+        case button2:
+            delegate?.onTappedButton(buttonType: .number(value: "2"))
+        case button3:
+            delegate?.onTappedButton(buttonType: .number(value: "3"))
+        case button4:
+            delegate?.onTappedButton(buttonType: .number(value: "4"))
+        case button5:
+            delegate?.onTappedButton(buttonType: .number(value: "5"))
+        case button6:
+            delegate?.onTappedButton(buttonType: .number(value: "6"))
+        case button7:
+            delegate?.onTappedButton(buttonType: .number(value: "7"))
+        case button8:
+            delegate?.onTappedButton(buttonType: .number(value: "8"))
+        case button9:
+            delegate?.onTappedButton(buttonType: .number(value: "9"))
+        case buttonAC:
+            delegate?.onTappedButton(buttonType: .acButton)
+        case buttonMultiply:
+            delegate?.onTappedButton(buttonType: .multiplyButton)
+        case buttonAdd:
+            delegate?.onTappedButton(buttonType: .addButton)
+        case buttonDivide:
+            delegate?.onTappedButton(buttonType: .divideButton)
+        case buttonMinus:
+            delegate?.onTappedButton(buttonType: .minusButton)
+        case buttonEquals:
+            delegate?.onTappedButton(buttonType: .equalButton)
+        default:
+            break
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -86,7 +141,7 @@ class MainView: UIView {
         calculatorView.translatesAutoresizingMaskIntoConstraints = false
         calculatorView.backgroundColor = .orange
         
-        // Buttons
+        // Set Buttons Title
         button1.setTitle("1", for: UIControl.State.normal)
         button2.setTitle("2", for: UIControl.State.normal)
         button3.setTitle("3", for: UIControl.State.normal)
@@ -103,6 +158,24 @@ class MainView: UIView {
         buttonMinus.setTitle("-", for: UIControl.State.normal)
         buttonEquals.setTitle("=", for: UIControl.State.normal)
         buttonAC.setTitle("AC", for: UIControl.State.normal)
+        
+        // Set Buttons On Click
+        button0.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        button1.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        button2.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        button3.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        button4.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        button5.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        button6.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        button7.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        button8.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        button9.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        buttonAC.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        buttonEquals.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        buttonAdd.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        buttonMinus.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        buttonMultiply.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        buttonDivide.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
 
         // Vertical Stack View
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -198,5 +271,5 @@ class MainView: UIView {
 // Bound is like its own coordinate system. Not relative to anything. Like if you rotate a rectangle, its bound gets bigger
 
 // Task
-// Research delegate and implement in the project
-// Research set button action rx swift
+// Research delegate and implement in the project. Check out UI table views and how delegation is used
+// Research set button action rx swift and cocoa pods
