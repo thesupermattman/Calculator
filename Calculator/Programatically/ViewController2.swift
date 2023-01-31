@@ -7,8 +7,10 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
-class ViewController2: UIViewController, CalculatorViewDelegate {
+class ViewController2: UIViewController , CalculatorViewDelegate {
     
     func onTappedButton(buttonType: ButtonType) {
         switch buttonType {
@@ -31,12 +33,86 @@ class ViewController2: UIViewController, CalculatorViewDelegate {
         }
     }
     
+    /*
+    func press() {
+        let disposeBag = DisposeBag()
+        disposeBag.insert(
+            mainView.button0.rx.tap.subscribe(onNext: { [weak self] in
+                self?.mainView.label1.text = self?.viewModel2.addToWorkings(value: "0")
+                print("button tapped")
+            }),
+            mainView.button1.rx.tap.subscribe(onNext: { [weak self] in
+                self?.mainView.label1.text = self?.viewModel2.addToWorkings(value: "1")
+            }),
+            mainView.button2.rx.tap.subscribe(onNext: { [weak self] in
+                self?.mainView.label1.text = self?.viewModel2.addToWorkings(value: "2")
+            })
+            )
+    }
+    */
+    
+    /*
+    func rxSwift() {
+        mainView.button0.rx.tap.bind {
+            self.mainView.label1.text = self.viewModel2.addToWorkings(value: "0")
+        }
+        mainView.button1.rx.tap.bind {
+            self.mainView.label1.text = self.viewModel2.addToWorkings(value: "1")
+        }
+        mainView.button2.rx.tap.bind {
+            self.mainView.label1.text = self.viewModel2.addToWorkings(value: "2")
+        }
+        mainView.button3.rx.tap.bind {
+            self.mainView.label1.text = self.viewModel2.addToWorkings(value: "3")
+        }
+        mainView.button4.rx.tap.bind {
+            self.mainView.label1.text = self.viewModel2.addToWorkings(value: "4")
+        }
+        mainView.button5.rx.tap.bind {
+            self.mainView.label1.text = self.viewModel2.addToWorkings(value: "5")
+        }
+        mainView.button6.rx.tap.bind {
+            self.mainView.label1.text = self.viewModel2.addToWorkings(value: "6")
+        }
+        mainView.button7.rx.tap.bind {
+            self.mainView.label1.text = self.viewModel2.addToWorkings(value: "7")
+        }
+        mainView.button8.rx.tap.bind {
+            self.mainView.label1.text = self.viewModel2.addToWorkings(value: "8")
+        }
+        mainView.button9.rx.tap.bind {
+            self.mainView.label1.text = self.viewModel2.addToWorkings(value: "9")
+        }
+        mainView.buttonAdd.rx.tap.bind {
+            self.mainView.label1.text = self.viewModel2.addToWorkings(value: "+")
+        }
+        mainView.buttonMinus.rx.tap.bind {
+            self.mainView.label1.text = self.viewModel2.addToWorkings(value: "-")
+        }
+        mainView.buttonMultiply.rx.tap.bind {
+            self.mainView.label1.text = self.viewModel2.addToWorkings(value: "*")
+        }
+        mainView.buttonDivide.rx.tap.bind {
+            self.mainView.label1.text = self.viewModel2.addToWorkings(value: "/")
+        }
+        mainView.buttonAC.rx.tap.bind {
+            (self.viewModel2.resetWorkings())
+            self.mainView.label1.text = "0"
+            self.mainView.label2.text = "0"
+        }
+        mainView.buttonEquals.rx.tap.bind {
+            self.mainView.label2.text = self.viewModel2.convertStringToEquation(value: self.viewModel2.addToWorkings(value: ""))
+        }
+    }
+     */
+
     let mainView = MainView()
     let viewModel2 = ViewModel2()
     var x: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        //rxSwift()
     }
     
     private func setUpView() {
@@ -47,7 +123,6 @@ class ViewController2: UIViewController, CalculatorViewDelegate {
         mainView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         mainView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         mainView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
     }
     
 //    @objc private func onClickButton(_ sender: UIButton) {

@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 enum ButtonType {
     case acButton
@@ -24,31 +26,33 @@ protocol CalculatorViewDelegate: AnyObject {
 
 class MainView: UIView {
     
+    private let disposeBag = DisposeBag()
     let label1 = UILabel()
     let label2 = UILabel()
-    let calculatorView = UIView()
-    let button1 = UIButton()
-    let button2 = UIButton()
-    let button3 = UIButton()
-    let button4 = UIButton()
-    let button5 = UIButton()
-    let button6 = UIButton()
-    let button7 = UIButton()
-    let button8 = UIButton()
-    let button9 = UIButton()
-    let button0 = UIButton()
-    let buttonAC = UIButton()
-    let buttonMultiply = UIButton()
-    let buttonAdd = UIButton()
-    let buttonDivide = UIButton()
-    let buttonMinus = UIButton()
-    let buttonEquals = UIButton()
-    let horizontalStackView1 = UIStackView()
-    let horizontalStackView2 = UIStackView()
-    let horizontalStackView3 = UIStackView()
-    let horizontalStackView4 = UIStackView()
-    let horizontalStackView5 = UIStackView()
-    let verticalStackView = UIStackView()
+    private let calculatorView = UIView()
+    private let button1 = UIButton()
+    private let button2 = UIButton()
+    private let button3 = UIButton()
+    private let button4 = UIButton()
+    private let button5 = UIButton()
+    private let button6 = UIButton()
+    private let button7 = UIButton()
+    private let button8 = UIButton()
+    private let button9 = UIButton()
+    private let button0 = UIButton()
+    private let buttonAC = UIButton()
+    private let buttonMultiply = UIButton()
+    private let buttonAdd = UIButton()
+    private let buttonDivide = UIButton()
+    private let buttonMinus = UIButton()
+    private let buttonEquals = UIButton()
+    private let horizontalStackView1 = UIStackView()
+    private let horizontalStackView2 = UIStackView()
+    private let horizontalStackView3 = UIStackView()
+    private let horizontalStackView4 = UIStackView()
+    private let horizontalStackView5 = UIStackView()
+    private let verticalStackView = UIStackView()
+    
     
     weak var delegate: CalculatorViewDelegate? = nil
     
@@ -90,6 +94,7 @@ class MainView: UIView {
             break
         }
     }
+    
 
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -137,6 +142,13 @@ class MainView: UIView {
         label2.textColor = .black
         label1.textAlignment = .center
         
+        /*
+        button0.rx.tap.bind {
+            print("button tapped")
+            //delegate?.onTappedButton(buttonType: .number(value: "0"))
+        }
+         */
+        
         // Calculator View
         calculatorView.translatesAutoresizingMaskIntoConstraints = false
         calculatorView.backgroundColor = .orange
@@ -159,6 +171,7 @@ class MainView: UIView {
         buttonEquals.setTitle("=", for: UIControl.State.normal)
         buttonAC.setTitle("AC", for: UIControl.State.normal)
         
+        /*
         // Set Buttons On Click
         button0.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
         button1.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
@@ -176,7 +189,58 @@ class MainView: UIView {
         buttonMinus.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
         buttonMultiply.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
         buttonDivide.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-
+        */
+        
+        // Set Buttons On Click with rxSwift
+        button0.rx.tap.bind {
+            self.handleButtonTapped(self.button0)
+        }.disposed(by: disposeBag)
+        button1.rx.tap.bind {
+            self.handleButtonTapped(self.button1)
+        }.disposed(by: disposeBag)
+        button2.rx.tap.bind {
+            self.handleButtonTapped(self.button2)
+        }.disposed(by: disposeBag)
+        button3.rx.tap.bind {
+            self.handleButtonTapped(self.button3)
+        }.disposed(by: disposeBag)
+        button4.rx.tap.bind {
+            self.handleButtonTapped(self.button4)
+        }.disposed(by: disposeBag)
+        button5.rx.tap.bind {
+            self.handleButtonTapped(self.button5)
+        }.disposed(by: disposeBag)
+        button6.rx.tap.bind {
+            self.handleButtonTapped(self.button6)
+        }.disposed(by: disposeBag)
+        button7.rx.tap.bind {
+            self.handleButtonTapped(self.button7)
+        }.disposed(by: disposeBag)
+        button8.rx.tap.bind {
+            self.handleButtonTapped(self.button8)
+        }.disposed(by: disposeBag)
+        button9.rx.tap.bind {
+            self.handleButtonTapped(self.button9)
+        }.disposed(by: disposeBag)
+        buttonMinus.rx.tap.bind {
+            self.handleButtonTapped(self.buttonMinus)
+        }.disposed(by: disposeBag)
+        buttonAdd.rx.tap.bind {
+            self.handleButtonTapped(self.buttonAdd)
+        }.disposed(by: disposeBag)
+        buttonMultiply.rx.tap.bind {
+            self.handleButtonTapped(self.buttonMultiply)
+        }.disposed(by: disposeBag)
+        buttonDivide.rx.tap.bind {
+            self.handleButtonTapped(self.buttonDivide)
+        }.disposed(by: disposeBag)
+        buttonAC.rx.tap.bind {
+            self.handleButtonTapped(self.buttonAC)
+        }.disposed(by: disposeBag)
+        buttonEquals.rx.tap.bind {
+            self.handleButtonTapped(self.buttonEquals)
+        }.disposed(by: disposeBag)
+         
         // Vertical Stack View
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         verticalStackView.backgroundColor = .orange
