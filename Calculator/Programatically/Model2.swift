@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Model2 {
+struct Model2 {
     
-    var workings = ""
+    var workings: String
 }

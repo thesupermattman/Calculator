@@ -9,7 +9,7 @@ import Foundation
 
 class ViewModel2 {
     
-    let model2 = Model2()
+    var model2 = Model2(workings: "")
     
     // Method to put the buttons clicked on the calculator as a string
     func addToWorkings(value: String) -> String {
