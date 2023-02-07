@@ -8,6 +8,8 @@
 import Foundation
 
 struct Model2 {
-    
-    var workings: String
+    struct input {
+        let initialText: String
+        let initialEquationText: String
+    }
 }

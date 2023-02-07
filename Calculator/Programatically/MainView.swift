@@ -170,27 +170,7 @@ class MainView: UIView {
         buttonMinus.setTitle("-", for: UIControl.State.normal)
         buttonEquals.setTitle("=", for: UIControl.State.normal)
         buttonAC.setTitle("AC", for: UIControl.State.normal)
-        
-        /*
-        // Set Buttons On Click
-        button0.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        button1.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        button2.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        button3.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        button4.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        button5.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        button6.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        button7.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        button8.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        button9.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        buttonAC.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        buttonEquals.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        buttonAdd.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        buttonMinus.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        buttonMultiply.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        buttonDivide.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-        */
-        
+                
         // Set Buttons On Click with rxSwift
         button0.rx.tap.bind {
             self.handleButtonTapped(self.button0)
@@ -329,11 +309,3 @@ class MainView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-// bound and frame
-// Frame is like this size of the object relative to the superview
-// Bound is like its own coordinate system. Not relative to anything. Like if you rotate a rectangle, its bound gets bigger
-
-// Task
-// Research delegate and implement in the project. Check out UI table views and how delegation is used
-// Research set button action rx swift and cocoa pods
