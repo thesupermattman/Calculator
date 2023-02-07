@@ -16,30 +16,41 @@ class ViewController2: UIViewController , CalculatorViewDelegate {
         switch buttonType {
         case .acButton:
             (viewModel2.resetWorkings())
-            mainView.label1.text = "0"
-            mainView.label2.text = "0"
         case .addButton:
-            mainView.label1.text = viewModel2.addToWorkings(value: "+")
+            viewModel2.addToWorkings(value: "+")
         case .minusButton:
-            mainView.label1.text = viewModel2.addToWorkings(value: "-")
+            viewModel2.addToWorkings(value: "-")
         case .multiplyButton:
-            mainView.label1.text = viewModel2.addToWorkings(value: "*")
+            viewModel2.addToWorkings(value: "*")
         case .divideButton:
-            mainView.label1.text = viewModel2.addToWorkings(value: "/")
+            viewModel2.addToWorkings(value: "/")
         case .equalButton:
-            mainView.label2.text = viewModel2.convertStringToEquation(value: viewModel2.addToWorkings(value: ""))
+            viewModel2.convertStringToEquation(value: viewModel2.working)
         case .number(let value):
-            mainView.label1.text = viewModel2.addToWorkings(value: value)
+            viewModel2.addToWorkings(value: value)
         }
     }
 
     let mainView = MainView()
-    let viewModel2 = ViewModel2()
+    let viewModel2 = ViewModel2(input: .init(initialText: "", initialEquationText: "")) // I don't understand the flow here???
+    
     var x: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
-        //rxSwift()
+        setUpRx()
+    }
+    
+    // What is this for again??? And how does it work???
+    private func setUpRx() {
+        viewModel2.textSubject.subscribe(onNext: { text in
+            self.mainView.label1.text = text
+        })
+        
+        viewModel2.equationTextSubject.subscribe(onNext: { text in
+            self.mainView.label2.text = text
+        })
     }
     
     private func setUpView() {
