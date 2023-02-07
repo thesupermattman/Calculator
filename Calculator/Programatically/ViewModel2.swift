@@ -31,4 +31,3 @@ class ViewModel2 {
         model2.workings = ""
     }
 }
-// Hello
