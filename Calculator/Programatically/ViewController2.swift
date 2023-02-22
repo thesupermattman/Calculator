@@ -30,6 +30,7 @@ class ViewController2: UIViewController , CalculatorViewDelegate {
             mainView.label2.text = viewModel2.convertStringToEquation(value: viewModel2.addToWorkings(value: ""))
         case .number(let value):
             mainView.label1.text = viewModel2.addToWorkings(value: value)
+        // viewModel2.addToWorkings(value: buttonType)
         }
     }
     

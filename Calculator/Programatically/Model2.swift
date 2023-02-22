@@ -11,3 +11,8 @@ struct Model2 {
     
     var workings: String
 }
+
+// Research carthage + package manager
+// Get rid of Expression thing
+// Make the app look like on the iPhone
+// Try use storyboard instead
